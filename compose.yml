@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17.5-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - sekonik_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=sekonik
+
+volumes:
+  sekonik_data:

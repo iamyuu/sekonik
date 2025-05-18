@@ -1,12 +1,17 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from 'react-router';
-import type { Route } from './+types/root';
-import { ThemeProvider } from './components/theme-provider';
-import { Toaster } from './components/ui/sonner';
-import './index.css';
+import type { Route } from './+types/root'
+import { Suspense } from 'react'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { ErrorFallback } from '@/components/fallback/error-fallback'
+import { PendingFallback } from '@/components/fallback/pending-fallback'
+import { AppProviders } from '@/providers/app-provider'
+import './styles/global.css'
 
-import { QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { queryClient } from './utils/trpc';
+export const meta: Route.MetaFunction = () => {
+  return [
+    { title: 'Sekonik' },
+    { name: 'description', content: 'A web app to buy and sell preloved electronic' },
+  ]
+}
 
 export const links: Route.LinksFunction = () => [
   {
@@ -22,9 +27,9 @@ export const links: Route.LinksFunction = () => [
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
-];
+]
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
       <head>
@@ -39,45 +44,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <div className="grid h-svh grid-rows-[auto_1fr]">
+    <AppProviders>
+      <div className="grid h-svh grid-rows-[auto_1fr]">
+        <Suspense fallback={<PendingFallback />}>
           <Outlet />
-        </div>
-        <Toaster richColors />
-      </ThemeProvider>
-      <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />
-    </QueryClientProvider>
-  );
+        </Suspense>
+      </div>
+    </AppProviders>
+  )
 }
 
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = 'Oops!';
-  let details = 'An unexpected error occurred.';
-  let stack: string | undefined;
-
-  if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? '404' : 'Error';
-    details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
-  }
-
-  return (
-    <main className="container mx-auto p-4 pt-16">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full overflow-x-auto p-4">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
-  );
-}
+export { ErrorFallback as ErrorBoundary }

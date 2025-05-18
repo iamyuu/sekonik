@@ -10,9 +10,6 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
-    "check": {
-      "dependsOn": ["^check-types"]
-    },
     "dev": {
       "cache": false,
       "persistent": true
@@ -30,6 +27,10 @@
       "persistent": true
     },
     "db:generate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:seed": {
       "cache": false,
       "persistent": true
     }

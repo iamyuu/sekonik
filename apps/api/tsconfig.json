@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "outDir": "./dist",
     "types": ["bun"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "strict": true,
+    "outDir": "./dist",
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
   "tsc-alias": {
     "resolveFullPaths": true

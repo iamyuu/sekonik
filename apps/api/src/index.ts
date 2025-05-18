@@ -1,39 +1,21 @@
-import 'dotenv/config';
-import { trpcServer } from '@hono/trpc-server';
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import { logger } from 'hono/logger';
-import { auth } from './lib/auth';
-import { createContext } from './lib/context';
-import { appRouter } from './routers/index';
+/* eslint-disable node/prefer-global/process -- expected to call `process` object */
+import { createHttpServer } from '@/presentation/http'
+import { logger } from '@/utils/logger'
+import 'reflect-metadata'
 
-const app = new Hono();
+const server = createHttpServer()
 
-app.use(logger());
-app.use(
-  '/*',
-  cors({
-    origin: process.env.CORS_ORIGIN || '',
-    allowMethods: ['GET', 'POST', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  }),
-);
+async function shutdown(kind: string) {
+  logger.warn(`${kind} signal received`, new Date().toISOString())
 
-app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));
+  logger.warn('HTTP server closing...')
+  server.close()
+  logger.warn('HTTP server closed')
 
-app.use(
-  '/trpc/*',
-  trpcServer({
-    router: appRouter,
-    createContext: (_opts, context) => {
-      return createContext({ context });
-    },
-  }),
-);
+  logger.info('Exiting...')
+  process.exit(0)
+}
 
-app.get('/', (c) => {
-  return c.text('OK');
-});
-
-export default app;
+process.on('SIGHUP', shutdown)
+process.on('SIGINT', shutdown)
+process.on('SIGTERM', shutdown)

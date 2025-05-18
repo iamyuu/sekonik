@@ -7,13 +7,13 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "check-types": "turbo check-types",
-    "dev:native": "turbo -F native dev",
     "dev:web": "turbo -F web dev",
     "dev:api": "turbo -F api dev",
     "db:push": "turbo -F api db:push",
     "db:studio": "turbo -F api db:studio",
     "db:generate": "turbo -F api db:generate",
-    "db:migrate": "turbo -F api db:migrate"
+    "db:migrate": "turbo -F api db:migrate",
+    "db:seed": "turbo -F api db:seed"
   },
   "dependencies": {},
   "devDependencies": {

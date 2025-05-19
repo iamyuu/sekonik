@@ -3,15 +3,15 @@ import { z } from 'zod'
 export const ProductQuerySchema = z
   .object({
     // Search
-    keyword: z.string().optional(),
+    keyword: z.string().nullable(),
 
     // Filtering
-    minPrice: z.coerce.number().min(0).optional(),
-    maxPrice: z.coerce.number().min(0).optional(),
+    minPrice: z.coerce.number().min(0).nullable(),
+    maxPrice: z.coerce.number().min(0).nullable(),
     minStock: z.coerce.number().min(0).optional(),
 
     // Sorting
-    sortBy: z.enum(['price']).optional(),
+    sortBy: z.enum(['price', 'createdAt']).optional(),
     sortDirection: z.enum(['asc', 'desc']).optional(),
 
     // Pagination

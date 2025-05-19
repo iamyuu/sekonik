@@ -1,7 +1,7 @@
 import { MutationCache, QueryClient } from '@tanstack/react-query'
 import { TRPCClientError } from '@trpc/client'
 
-const MAX_RETRY = 5
+const MAX_RETRY = 3
 
 export const queryClient = new QueryClient({
   defaultOptions: {

@@ -1,7 +1,9 @@
+/* eslint-disable perfectionist/sort-imports -- we want reflect-metadata to be imported first */
 /* eslint-disable node/prefer-global/process -- expected to call `process` object */
+
+import 'reflect-metadata'
 import { createHttpServer } from '@/presentation/http'
 import { logger } from '@/utils/logger'
-import 'reflect-metadata'
 
 const server = createHttpServer()
 

@@ -1,21 +1,4 @@
 services:
-  # FIXME: setup dev
-  # app:
-  #   build: .
-  #   container_name: sekonik-app
-  #   ports:
-  #     - 8080:8080
-  #     - 5173:5173
-  #   volumes:
-  #     - .:/app
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - BETTER_AUTH_SECRET=s3Cr3T
-  #     - BETTER_AUTH_URL=http://localhost:8080/api/auth
-  #     - DATABASE_URL=postgresql://usr:secret@localhost:5432/sekonik
-  #     - WEB_URL=http://localhost:5173
-
   db:
     image: postgres:17.5-alpine
     container_name: sekonik-db
@@ -29,6 +12,58 @@ services:
       - POSTGRES_USER=usr
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=sekonik
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sekonik
+    depends_on:
+      - db
+    environment:
+      - BETTER_AUTH_SECRET=s3Cr3T
+      - BETTER_AUTH_URL=http://app:8080/api/auth
+      - DATABASE_URL=postgresql://usr:secret@db:5432/sekonik
+      - WEB_URL=http://web:5173
+    ports:
+      - 8080:8080
+      - 5173:5173
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+
+  # api:
+  #   build:
+  #     context: ./apps/api
+  #     dockerfile: Dockerfile
+  #   container_name: sekonik-api
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - ./apps/api:/app
+  #     - ./apps/api/node_modules:/app/node_modules
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - BETTER_AUTH_SECRET=s3Cr3T
+  #     - BETTER_AUTH_URL=http://localhost:8080/api/auth
+  #     - DATABASE_URL=postgresql://usr:secret@localhost:5432/sekonik
+  #     - WEB_URL=http://localhost:5173
+
+  # web:
+  #   build:
+  #     context: ./apps/web
+  #     dockerfile: Dockerfile
+  #   container_name: sekonik-web
+  #   ports:
+  #     - 5173:5173
+  #   volumes:
+  #     - ./apps/web:/app
+  #     - ./apps/web/node_modules:/app/node_modules
+  #   depends_on:
+  #     - api
+  #   environment:
+  #     - VITE_API_URL=http://localhost:8080
 
 volumes:
   sekonik_data:

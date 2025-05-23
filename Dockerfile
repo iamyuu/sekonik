@@ -1,8 +1,9 @@
 # syntax = docker/dockerfile:1
 
 # Adjust NODE_VERSION as desired
-ARG NODE_VERSION=22.11.0
-FROM node:${NODE_VERSION}-slim as base
+# ARG NODE_VERSION=22.11.0
+# FROM node:${NODE_VERSION}-slim as base
+FROM oven/bun:1.2-slim as base
 
 LABEL fly_launch_runtime="NodeJS"
 
@@ -12,27 +13,26 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV=production
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
-    apt-get install -y python-is-python3 pkg-config build-essential 
+    apt-get install -y python-is-python3 pkg-config build-essential
 
 # Install node modules
 COPY --link package.json .
-RUN npm install --production=false
+RUN bun install
 
 # Copy application code
 COPY --link . .
 
 # Build application
-RUN npm run build
+# Just deploy the api, so we need to run build
+# RUN bun run build
 
 # Remove development dependencies
-RUN npm prune --production
-
+# RUN bun prune --production
 
 # Final stage for app image
 FROM base
@@ -41,4 +41,4 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-CMD [ "npm", "run", "start" ]
+CMD [ "bun", "run", "start" ]

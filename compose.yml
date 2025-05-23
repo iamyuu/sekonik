@@ -49,6 +49,8 @@ services:
   #     - BETTER_AUTH_URL=http://localhost:8080/api/auth
   #     - DATABASE_URL=postgresql://usr:secret@localhost:5432/sekonik
   #     - WEB_URL=http://localhost:5173
+  #   networks:
+  #     - sekonik_app
 
   # web:
   #   build:
@@ -64,6 +66,10 @@ services:
   #     - api
   #   environment:
   #     - VITE_API_URL=http://localhost:8080
+  #   networks:
+  #     - sekonik_app
 
 volumes:
   sekonik_data:
+  # sekonik_app:
+  #   external: true

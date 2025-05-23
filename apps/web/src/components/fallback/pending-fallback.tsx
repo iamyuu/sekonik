@@ -1,8 +1,9 @@
 import { Loader2 } from 'lucide-react'
+import { cn } from '@/utils/functions'
 
-export function PendingFallback() {
+export function PendingFallback(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className="flex h-full items-center justify-center pt-8">
+    <div {...props} className={cn('flex h-full items-center justify-center', props.className)}>
       <Loader2 className="animate-spin" />
     </div>
   )

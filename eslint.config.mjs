@@ -5,7 +5,13 @@ export default antfu(
     stylistic: true,
     formatters: true,
     react: true,
-    ignores: ['apps/api/src/database/generated', 'apps/web/.react-router/types'],
+    ignores: [
+      'apps/api/src/database/generated',
+      'apps/web/.react-router/types',
+
+      'apps/api/dist',
+      'apps/web/build',
+    ],
   },
   {
     files: [

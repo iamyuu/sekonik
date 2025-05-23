@@ -22,57 +22,41 @@ A web app to buy and sell preloved electronic
 First, install the dependencies:
 
 ```bash
-bun install
+make setup
 ```
 
-## Database Setup
-
-This project uses PostgreSQL with Prisma.
-
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/api/.env` file with your PostgreSQL connection details.
-
-3. Generate the Prisma client and push the schema:
+Run the development server:
 
 ```bash
-bun db:push
-```
-
-Then, run the development server:
-
-```bash
-bun dev
+make dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to see the web application.
 
-The API is running at [http://localhost:3000](http://localhost:3000).
+The API is running at [http://localhost:8080](http://localhost:8080).
 
 ## Project Structure
 
 ```
 sekonik
-├── apps
-│   ├── api
-│   │   └── src
-│   │       ├── config
-│   │       ├── database
-│   │       ├── features
-│   │       ├── presentation
-│   │       └── utils
-│   └── web
-│       ├── public
-│       └── src
-│           ├── components
-│           ├── features
-│           ├── providers
-│           ├── routes
-│           ├── styles
-│           └── utils
-└── packages
-    └── shared
-        ├── schema
-        └── types
+└── apps
+    ├── api
+    │   └── src
+    │       ├── config          # Configuration files (env, etc)
+    │       ├── database        # Database schema and migrations
+    │       ├── features        # Feature modules based on domain
+    │       ├── presentation    # Presentation layer (http, grpc, etc)
+    │       └── utils           # Utility functions
+    └── web
+        └── src
+            ├── components      # UI components
+            ├── config          # Configuration files (env, etc)
+            ├── features        # Feature modules based on domain
+            ├── hooks           # Custom hooks
+            ├── providers       # Context providers
+            ├── routes          # Routing configuration
+            ├── styles          # Global styles
+            └── utils           # Utility functions
 ```
 
 ## Available Scripts
@@ -81,7 +65,6 @@ sekonik
 - `bun build`: Build all applications
 - `bun dev:web`: Start only the web application
 - `bun dev:api`: Start only the server
-- `bun check-types`: Check TypeScript types across all apps
-- `bun db:push`: Push schema changes to database
 - `bun db:studio`: Open database studio UI
 - `bun lint`: Run linter
+- `bun typecheck`: Run type checker

@@ -1,12 +1,15 @@
-import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
-import { queryClient } from '@/utils/query-client'
+import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
 import { trpc } from '@/utils/trpc'
 
-export async function prefetchProducts(input: ProductQueryDTO = {}) {
-  await queryClient.ensureQueryData(trpc.product.getProducts.queryOptions(input))
+export function useFeaturedProducts() {
+  return useSuspenseQuery(
+    trpc.product.getProducts.queryOptions({
+      featured: true,
+    }),
+  )
 }
 
-export function useProducts(input: ProductQueryDTO = {}) {
+export function useProducts(input: ProductListQueryDTO) {
   return useSuspenseInfiniteQuery(
     trpc.product.getProducts.infiniteQueryOptions(input, {
       getNextPageParam: lastPage => lastPage.meta.nextCursor,
@@ -14,6 +17,14 @@ export function useProducts(input: ProductQueryDTO = {}) {
   )
 }
 
-export type ProductDTO = typeof trpc.product.getProducts['~types']['output']['items'][number]
+export function useProductBySlug(input: typeof trpc.product.getBySlug['~types']['input']) {
+  return useSuspenseQuery(
+    trpc.product.getBySlug.queryOptions(input),
+  )
+}
 
-export type ProductQueryDTO = typeof trpc.product.getProducts['~types']['input']
+export type ProductDTO = NonNullable<typeof trpc.product.getBySlug['~types']['output']>
+
+export type ProductListDTO = NonNullable<typeof trpc.product.getProducts['~types']['output']['items']>
+
+export type ProductListQueryDTO = typeof trpc.product.getProducts['~types']['input']

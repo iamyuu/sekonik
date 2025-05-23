@@ -3,13 +3,14 @@ import { Suspense } from 'react'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import { ErrorFallback } from '@/components/fallback/error-fallback'
 import { PendingFallback } from '@/components/fallback/pending-fallback'
+import { APP_DESCRIPTION, APP_NAME } from '@/config/app'
 import { AppProviders } from '@/providers/app-provider'
 import './styles/global.css'
 
 export const meta: Route.MetaFunction = () => {
   return [
-    { title: 'Sekonik' },
-    { name: 'description', content: 'A web app to buy and sell preloved electronic' },
+    { title: APP_NAME },
+    { name: 'description', content: APP_DESCRIPTION },
   ]
 }
 
@@ -26,6 +27,11 @@ export const links: Route.LinksFunction = () => [
   {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+  },
+  {
+    rel: 'preload',
+    as: 'image',
+    href: '/placeholder.svg',
   },
 ]
 
@@ -50,11 +56,9 @@ export function Layout({ children }: React.PropsWithChildren) {
 export default function App() {
   return (
     <AppProviders>
-      <div className="grid h-svh grid-rows-[auto_1fr]">
-        <Suspense fallback={<PendingFallback />}>
-          <Outlet />
-        </Suspense>
-      </div>
+      <Suspense fallback={<PendingFallback className="pt-8" />}>
+        <Outlet />
+      </Suspense>
     </AppProviders>
   )
 }

@@ -1,11 +1,30 @@
 services:
+  # FIXME: setup dev
+  # app:
+  #   build: .
+  #   container_name: sekonik-app
+  #   ports:
+  #     - 8080:8080
+  #     - 5173:5173
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - BETTER_AUTH_SECRET=s3Cr3T
+  #     - BETTER_AUTH_URL=http://localhost:8080/api/auth
+  #     - DATABASE_URL=postgresql://usr:secret@localhost:5432/sekonik
+  #     - WEB_URL=http://localhost:5173
+
   db:
     image: postgres:17.5-alpine
+    container_name: sekonik-db
     restart: always
     ports:
       - 5432:5432
     volumes:
       - sekonik_data:/var/lib/postgresql/data
+      - ./scripts/factories/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_USER=usr
       - POSTGRES_PASSWORD=secret

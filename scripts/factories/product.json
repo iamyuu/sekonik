@@ -1,0 +1,582 @@
+[
+  {
+    "id": "01JVW2HFGMDR6Y1XTSQ5QHBWFQ",
+    "sku": "SMA-APP-IPH-121",
+    "name": "iPhone 5s",
+    "description": "The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it's an older model, it still provides a reliable user experience.",
+    "price": 199.99,
+    "discountPercentage": 12.91,
+    "brand": "Apple",
+    "category": "Smartphone",
+    "stockQuantity": 25,
+    "minimumOrderQuantity": 3,
+    "weight": 2,
+    "dimensions": {
+      "width": 5.29,
+      "height": 18.38,
+      "depth": 17.72
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMQMM68YD21JFRRJFR",
+    "sku": "SMA-APP-IPH-122",
+    "name": "iPhone 6",
+    "description": "The iPhone 6 is a stylish and capable smartphone with a larger display and improved performance. It introduced new features and design elements, making it a popular choice in its time.",
+    "price": 299.99,
+    "discountPercentage": 6.69,
+    "brand": "Apple",
+    "category": "Smartphone",
+    "stockQuantity": 60,
+    "minimumOrderQuantity": 5,
+    "weight": 7,
+    "dimensions": {
+      "width": 11,
+      "height": 9.1,
+      "depth": 9.67
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMNS7YHD8TSXBW1V01",
+    "sku": "SMA-APP-IPH-123",
+    "name": "iPhone 13 Pro",
+    "description": "The iPhone 13 Pro is a cutting-edge smartphone with a powerful camera system, high-performance chip, and stunning display. It offers advanced features for users who demand top-notch technology.",
+    "price": 1099.99,
+    "discountPercentage": 9.37,
+    "brand": "Apple",
+    "category": "Smartphone",
+    "stockQuantity": 56,
+    "minimumOrderQuantity": 1,
+    "weight": 8,
+    "dimensions": {
+      "width": 12.63,
+      "height": 5.28,
+      "depth": 14.29
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMV593X8MFN2V8RKTD",
+    "sku": "SMA-APP-IPH-124",
+    "name": "iPhone X",
+    "description": "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
+    "price": 899.99,
+    "discountPercentage": 19.59,
+    "brand": "Apple",
+    "category": "Smartphone",
+    "stockQuantity": 37,
+    "minimumOrderQuantity": 2,
+    "weight": 1,
+    "dimensions": {
+      "width": 21.88,
+      "height": 24.19,
+      "depth": 14.19
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGM9D1ATZ2Q8E1VNMKK",
+    "sku": "SMA-OPP-OPP-125",
+    "name": "Oppo A57",
+    "description": "The Oppo A57 is a mid-range smartphone known for its sleek design and capable features. It offers a balance of performance and affordability, making it a popular choice.",
+    "price": 249.99,
+    "discountPercentage": 2.43,
+    "brand": "Oppo",
+    "category": "Smartphone",
+    "stockQuantity": 19,
+    "minimumOrderQuantity": 3,
+    "weight": 5,
+    "dimensions": {
+      "width": 7.2,
+      "height": 10.74,
+      "depth": 23.68
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMK82QHH9MBC4KY98Y",
+    "sku": "SMA-OPP-OPP-126",
+    "name": "Oppo F19 Pro Plus",
+    "description": "The Oppo F19 Pro Plus is a feature-rich smartphone with a focus on camera capabilities. It boasts advanced photography features and a powerful performance for a premium user experience.",
+    "price": 399.99,
+    "discountPercentage": 18.64,
+    "brand": "Oppo",
+    "category": "Smartphone",
+    "stockQuantity": 78,
+    "minimumOrderQuantity": 1,
+    "weight": 6,
+    "dimensions": {
+      "width": 6.78,
+      "height": 25.17,
+      "depth": 8.4
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMGKZ4YSSSD309HW5B",
+    "sku": "SMA-OPP-OPP-127",
+    "name": "Oppo K1",
+    "description": "The Oppo K1 series offers a range of smartphones with various features and specifications. Known for their stylish design and reliable performance, the Oppo K1 series caters to diverse user preferences.",
+    "price": 299.99,
+    "discountPercentage": 18.29,
+    "brand": "Oppo",
+    "category": "Smartphone",
+    "stockQuantity": 55,
+    "minimumOrderQuantity": 5,
+    "weight": 5,
+    "dimensions": {
+      "width": 13.89,
+      "height": 10.63,
+      "depth": 16.6
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/3.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/4.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMK8SGR4JMBKNTXZA6",
+    "sku": "SMA-REA-REA-128",
+    "name": "Realme C35",
+    "description": "The Realme C35 is a budget-friendly smartphone with a focus on providing essential features for everyday use. It offers a reliable performance and user-friendly experience.",
+    "price": 149.99,
+    "discountPercentage": 15.3,
+    "brand": "Realme",
+    "category": "Smartphone",
+    "stockQuantity": 48,
+    "minimumOrderQuantity": 3,
+    "weight": 2,
+    "dimensions": {
+      "width": 25.28,
+      "height": 8.14,
+      "depth": 29.53
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGMDF4VFNSRA5KXQF6F",
+    "sku": "SMA-REA-REA-129",
+    "name": "Realme X",
+    "description": "The Realme X is a mid-range smartphone known for its sleek design and impressive display. It offers a good balance of performance and camera capabilities for users seeking a quality device.",
+    "price": 299.99,
+    "discountPercentage": 6.95,
+    "brand": "Realme",
+    "category": "Smartphone",
+    "stockQuantity": 12,
+    "minimumOrderQuantity": 3,
+    "weight": 4,
+    "dimensions": {
+      "width": 25.59,
+      "height": 21.42,
+      "depth": 12.75
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-x/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-x/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-x/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNTR87ZQYBZX254F7P",
+    "sku": "SMA-REA-REA-130",
+    "name": "Realme XT",
+    "description": "The Realme XT is a feature-rich smartphone with a focus on camera technology. It comes equipped with advanced camera sensors, delivering high-quality photos and videos for photography enthusiasts.",
+    "price": 349.99,
+    "discountPercentage": 11.51,
+    "brand": "Realme",
+    "category": "Smartphone",
+    "stockQuantity": 80,
+    "minimumOrderQuantity": 3,
+    "weight": 3,
+    "dimensions": {
+      "width": 24.98,
+      "height": 26.73,
+      "depth": 6.5
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGN3JEJTB48ZP4NJSAT",
+    "sku": "SMA-SAM-SAM-131",
+    "name": "Samsung Galaxy S7",
+    "description": "The Samsung Galaxy S7 is a flagship smartphone known for its sleek design and advanced features. It features a high-resolution display, powerful camera, and robust performance.",
+    "price": 299.99,
+    "discountPercentage": 19.55,
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "stockQuantity": 67,
+    "minimumOrderQuantity": 1,
+    "weight": 10,
+    "dimensions": {
+      "width": 13.55,
+      "height": 24.24,
+      "depth": 5.63
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNJQ8T8PH1WSMTQ828",
+    "sku": "SMA-SAM-SAM-132",
+    "name": "Samsung Galaxy S8",
+    "description": "The Samsung Galaxy S8 is a premium smartphone with an Infinity Display, offering a stunning visual experience. It boasts advanced camera capabilities and cutting-edge technology.",
+    "price": 499.99,
+    "discountPercentage": 19.45,
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "stockQuantity": 0,
+    "minimumOrderQuantity": 4,
+    "weight": 6,
+    "dimensions": {
+      "width": 23.05,
+      "height": 26.88,
+      "depth": 15.73
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGN7P3CHBPC63VYMP7K",
+    "sku": "SMA-SAM-SAM-133",
+    "name": "Samsung Galaxy S10",
+    "description": "The Samsung Galaxy S10 is a flagship device featuring a dynamic AMOLED display, versatile camera system, and powerful performance. It represents innovation and excellence in smartphone technology.",
+    "price": 699.99,
+    "discountPercentage": 5.59,
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "stockQuantity": 19,
+    "minimumOrderQuantity": 2,
+    "weight": 9,
+    "dimensions": {
+      "width": 27.41,
+      "height": 15.26,
+      "depth": 27.02
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNFN2NYEN69BME1VRV",
+    "sku": "SMA-VIV-VIV-134",
+    "name": "Vivo S1",
+    "description": "The Vivo S1 is a stylish and mid-range smartphone offering a blend of design and performance. It features a vibrant display, capable camera system, and reliable functionality.",
+    "price": 249.99,
+    "discountPercentage": 10.17,
+    "brand": "Vivo",
+    "category": "Smartphone",
+    "stockQuantity": 50,
+    "minimumOrderQuantity": 1,
+    "weight": 4,
+    "dimensions": {
+      "width": 14.06,
+      "height": 11.79,
+      "depth": 6.78
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNNDK7E0K9Y5JRJXN8",
+    "sku": "SMA-VIV-VIV-135",
+    "name": "Vivo V9",
+    "description": "The Vivo V9 is a smartphone known for its sleek design and emphasis on capturing high-quality selfies. It features a notch display, dual-camera setup, and a modern design.",
+    "price": 299.99,
+    "discountPercentage": 17.67,
+    "brand": "Vivo",
+    "category": "Smartphone",
+    "stockQuantity": 82,
+    "minimumOrderQuantity": 2,
+    "weight": 4,
+    "dimensions": {
+      "width": 19.85,
+      "height": 21.83,
+      "depth": 13.04
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNQ5QTWR0BED4098NW",
+    "sku": "SMA-VIV-VIV-136",
+    "name": "Vivo X21",
+    "description": "The Vivo X21 is a premium smartphone with a focus on cutting-edge technology. It features an in-display fingerprint sensor, a high-resolution display, and advanced camera capabilities.",
+    "price": 499.99,
+    "discountPercentage": 17.41,
+    "brand": "Vivo",
+    "category": "Smartphone",
+    "stockQuantity": 7,
+    "minimumOrderQuantity": 3,
+    "weight": 10,
+    "dimensions": {
+      "width": 22.49,
+      "height": 21.62,
+      "depth": 27.88
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/1.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/2.webp",
+      "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNX9F7E55KYQBE75WD",
+    "sku": "LAP-APP-APP-078",
+    "name": "Apple MacBook Pro 14 Inch Space Grey",
+    "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+    "price": 1999.99,
+    "discountPercentage": 4.69,
+    "brand": "Apple",
+    "category": "Laptop",
+    "stockQuantity": 24,
+    "minimumOrderQuantity": 1,
+    "weight": 9,
+    "dimensions": {
+      "width": 20.03,
+      "height": 9.54,
+      "depth": 14.82
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGN5JHAQVC3J6H58YE4",
+    "sku": "LAP-ASU-ASU-079",
+    "name": "Asus Zenbook Pro Dual Screen Laptop",
+    "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+    "price": 1799.99,
+    "discountPercentage": 11.14,
+    "brand": "Asus",
+    "category": "Laptop",
+    "stockQuantity": 45,
+    "minimumOrderQuantity": 1,
+    "weight": 9,
+    "dimensions": {
+      "width": 16.6,
+      "height": 11.49,
+      "depth": 10.89
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNEXTG2SE61EGMRGFG",
+    "sku": "LAP-HUA-HUA-080",
+    "name": "Huawei Matebook X Pro",
+    "description": "The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.",
+    "price": 1399.99,
+    "discountPercentage": 9.38,
+    "brand": "Huawei",
+    "category": "Laptop",
+    "stockQuantity": 75,
+    "minimumOrderQuantity": 1,
+    "weight": 9,
+    "dimensions": {
+      "width": 18.21,
+      "height": 22.83,
+      "depth": 17.26
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNAYBBBC64MXPDJXBV",
+    "sku": "LAP-LEN-LEN-081",
+    "name": "Lenovo Yoga 920",
+    "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+    "price": 1099.99,
+    "discountPercentage": 6.55,
+    "brand": "Lenovo",
+    "category": "Laptop",
+    "stockQuantity": 40,
+    "minimumOrderQuantity": 1,
+    "weight": 9,
+    "dimensions": {
+      "width": 20.84,
+      "height": 22.68,
+      "depth": 17.39
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNDP47CK53EYFR0E4W",
+    "sku": "LAP-DEL-DEL-082",
+    "name": "New DELL XPS 13 9300 Laptop",
+    "description": "The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.",
+    "price": 1499.99,
+    "discountPercentage": 11.89,
+    "brand": "Dell",
+    "category": "Laptop",
+    "stockQuantity": 74,
+    "minimumOrderQuantity": 1,
+    "weight": 2,
+    "dimensions": {
+      "width": 13.76,
+      "height": 29,
+      "depth": 21.42
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+      "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNPJRPGXBXA8DY6MQF",
+    "sku": "TAB-APP-IPA-159",
+    "name": "iPad Mini 2021 Starlight",
+    "description": "The iPad Mini 2021 in Starlight is a compact and powerful tablet from Apple. Featuring a stunning Retina display, powerful A-series chip, and a sleek design, it offers a premium tablet experience.",
+    "price": 499.99,
+    "discountPercentage": 3.64,
+    "brand": "Apple",
+    "category": "Tablet",
+    "stockQuantity": 47,
+    "minimumOrderQuantity": 3,
+    "weight": 5,
+    "dimensions": {
+      "width": 17.03,
+      "height": 5.34,
+      "depth": 29.62
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/4.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNVP9W1QFWEHB50D6W",
+    "sku": "TAB-SAM-SAM-160",
+    "name": "Samsung Galaxy Tab S8 Plus Grey",
+    "description": "The Samsung Galaxy Tab S8 Plus in Grey is a high-performance Android tablet by Samsung. With a large AMOLED display, powerful processor, and S Pen support, it's ideal for productivity and entertainment.",
+    "price": 599.99,
+    "discountPercentage": 13.31,
+    "brand": "Samsung",
+    "category": "Tablet",
+    "stockQuantity": 62,
+    "minimumOrderQuantity": 1,
+    "weight": 1,
+    "dimensions": {
+      "width": 6.11,
+      "height": 25.85,
+      "depth": 26.85
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/4.webp"
+    ]
+  },
+  {
+    "id": "01JVW2HFGNV904ARMJSH819XXQ",
+    "sku": "TAB-SAM-SAM-161",
+    "name": "Samsung Galaxy Tab White",
+    "description": "The Samsung Galaxy Tab in White is a sleek and versatile Android tablet. With a vibrant display, long-lasting battery, and a range of features, it offers a great user experience for various tasks.",
+    "price": 349.99,
+    "discountPercentage": 18.2,
+    "brand": "Samsung",
+    "category": "Tablet",
+    "stockQuantity": 92,
+    "minimumOrderQuantity": 5,
+    "weight": 5,
+    "dimensions": {
+      "width": 15.05,
+      "height": 5.37,
+      "depth": 11.82
+    },
+    "thumbnailUrl": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+    "images": [
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/1.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/2.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/3.webp",
+      "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/4.webp"
+    ]
+  }
+]

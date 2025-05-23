@@ -5,32 +5,19 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "build/**"]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
+    "lint": {},
+    "typecheck": {},
     "dev": {
       "cache": false,
       "persistent": true
     },
-    "db:push": {
+    "db:setup": {
       "cache": false,
       "persistent": true
     },
     "db:studio": {
-      "cache": false,
-      "persistent": true
-    },
-    "db:migrate": {
-      "cache": false,
-      "persistent": true
-    },
-    "db:generate": {
-      "cache": false,
-      "persistent": true
-    },
-    "db:seed": {
       "cache": false,
       "persistent": true
     }

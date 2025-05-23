@@ -3,16 +3,19 @@ import { z } from 'zod'
 export const ProductQuerySchema = z
   .object({
     // Search
-    keyword: z.string().nullable(),
+    keyword: z.string().optional(),
 
     // Filtering
-    minPrice: z.coerce.number().min(0).nullable(),
-    maxPrice: z.coerce.number().min(0).nullable(),
+    minPrice: z.coerce.number().min(0).optional(),
+    maxPrice: z.coerce.number().min(0).optional(),
+
     minStock: z.coerce.number().min(0).optional(),
 
+    featured: z.boolean().optional(),
+
     // Sorting
-    sortBy: z.enum(['price', 'createdAt']).optional(),
-    sortDirection: z.enum(['asc', 'desc']).optional(),
+    sortBy: z.enum(['featured', 'name', 'price', 'createdAt']).default('featured'),
+    sortDirection: z.enum(['asc', 'desc']).default('asc'),
 
     // Pagination
     cursor: z.string().ulid().optional(),
@@ -38,4 +41,4 @@ export const ProductQuerySchema = z
     }
   })
 
-export type ProductQueryDTO = z.infer<typeof ProductQuerySchema>
+export type ProductListQueryDTO = z.infer<typeof ProductQuerySchema>

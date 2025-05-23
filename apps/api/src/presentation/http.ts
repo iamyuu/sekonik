@@ -2,6 +2,7 @@ import { cors } from 'hono/cors'
 import { logger as httpLogger } from 'hono/logger'
 import { secureHeaders } from 'hono/secure-headers'
 import { env } from '@/config/env'
+import { prisma } from '@/database/client'
 import { authRoute } from '@/features/auth/auth.route'
 import { productRouter } from '@/features/product/product.procedure'
 import { logger } from '@/utils/logger'
@@ -36,14 +37,23 @@ export function createHttpServer() {
     return next()
   })
 
-  app.get('/api/health', c =>
-    c.json({
+  app.get('/api/health', async (c) => {
+    const isHealthy = {
       message: 'OK',
       version: '0.1.0',
       // eslint-disable-next-line node/prefer-global/process -- expected to call `process.uptime`
       uptime: process.uptime(),
       timestamp: new Date().toISOString(),
-    }))
+    }
+
+    try {
+      await prisma.$queryRaw`SELECT 1`
+      return c.json({ ...isHealthy, db: 'OK' })
+    }
+    catch {
+      return c.json({ ...isHealthy, db: 'NOK' }, 500)
+    }
+  })
 
   app.route('/', authRoute)
   app.route('/', createTrpcServer({ router: trpcRouter }))

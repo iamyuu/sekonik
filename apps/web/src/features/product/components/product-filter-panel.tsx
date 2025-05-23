@@ -2,26 +2,18 @@ import { useSearchParams } from 'react-router'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useDebounceFn } from '@/hooks/use-debounce'
 
-export function ProductFilter() {
+export function ProductFilterPanel() {
   const [searchParams, setSearchParams] = useSearchParams()
   const updateSearchParams = useDebounceFn((key: string, value: string) => setSearchParams({ ...Object.fromEntries(searchParams), [key]: value }))
 
   return (
-    <Card className="col-span-12 lg:col-span-3 p-4 h-fit">
+    <Card className="p-4 h-fit shadow-none">
       <h2 className="text-lg font-semibold">Filter</h2>
 
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="search">Search</Label>
-        <Input
-          type="text"
-          placeholder="Search"
-          id="search"
-          defaultValue={searchParams.get('q') || ''}
-          onChange={e => updateSearchParams('q', e.target.value)}
-        />
-      </div>
+      <hr />
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="price">Price</Label>
@@ -48,20 +40,18 @@ export function ProductFilter() {
 
       <h2 className="text-lg font-semibold">Sort</h2>
 
-      <div className="flex flex-col gap-2">
-        <select
-          name="sort"
-          id="sort"
-          defaultValue={searchParams.get('sort') || ''}
-          onChange={e => updateSearchParams('sort', e.target.value)}
-        >
-          <option value="" disabled>Choose...</option>
-          <option value="price-asc">Cheapest Price</option>
-          <option value="price-desc">Expensive Price</option>
-          <option value="createdAt-asc">Newest</option>
-          <option value="createdAt-desc">Oldest</option>
-        </select>
-      </div>
+      <Select defaultValue={searchParams.get('sort') || 'featured-asc'} onValueChange={value => updateSearchParams('sort', value)}>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Sort" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="featured-asc">Featured</SelectItem>
+          <SelectItem value="price-asc">Cheapest Price</SelectItem>
+          <SelectItem value="price-desc">Expensive Price</SelectItem>
+          <SelectItem value="createdAt-asc">Newest</SelectItem>
+          <SelectItem value="createdAt-desc">Oldest</SelectItem>
+        </SelectContent>
+      </Select>
     </Card>
   )
 }

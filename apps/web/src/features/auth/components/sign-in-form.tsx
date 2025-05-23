@@ -1,21 +1,13 @@
 import { useForm } from '@tanstack/react-form'
-import { useNavigate } from 'react-router'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { Loader } from '@/components/fallback/pending-fallback'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authClient } from '../service/auth-client'
+import { authStore } from '../store/auth'
 
-export default function SignInForm({
-  onSwitchToSignUp,
-}: {
-  onSwitchToSignUp: () => void
-}) {
-  const navigate = useNavigate()
-  const { isPending } = authClient.useSession()
-
+export function SignInForm() {
   const form = useForm({
     defaultValues: {
       email: '',
@@ -29,11 +21,11 @@ export default function SignInForm({
         },
         {
           onSuccess: () => {
-            navigate('/dashboard')
             toast.success('Sign in successful')
+            authStore.trigger.closeForm()
           },
-          onError: (error) => {
-            toast.error(error.error.message)
+          onError: ({ error }) => {
+            toast.error(error.message)
           },
         },
       )
@@ -46,14 +38,12 @@ export default function SignInForm({
     },
   })
 
-  if (isPending) {
-    return <Loader />
+  const handleSwitchToSignUp = () => {
+    authStore.trigger.openForm({ open: 'sign-up' })
   }
 
   return (
-    <div className="mx-auto mt-10 w-full max-w-md p-6">
-      <h1 className="mb-6 text-center font-bold text-3xl">Welcome Back</h1>
-
+    <>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -118,10 +108,10 @@ export default function SignInForm({
       </form>
 
       <div className="mt-4 text-center">
-        <Button variant="link" onClick={onSwitchToSignUp} className="text-indigo-600 hover:text-indigo-800">
+        <Button variant="link" onClick={handleSwitchToSignUp} className="text-muted-foreground hover:text-foreground cursor-pointer">
           Need an account? Sign Up
         </Button>
       </div>
-    </div>
+    </>
   )
 }

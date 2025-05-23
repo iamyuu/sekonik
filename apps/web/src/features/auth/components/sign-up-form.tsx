@@ -1,21 +1,13 @@
 import { useForm } from '@tanstack/react-form'
-import { useNavigate } from 'react-router'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { Loader } from '@/components/fallback/pending-fallback'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authClient } from '../service/auth-client'
+import { authStore } from '../store/auth'
 
-export default function SignUpForm({
-  onSwitchToSignIn,
-}: {
-  onSwitchToSignIn: () => void
-}) {
-  const navigate = useNavigate()
-  const { isPending } = authClient.useSession()
-
+export function SignUpForm() {
   const form = useForm({
     defaultValues: {
       email: '',
@@ -31,11 +23,10 @@ export default function SignUpForm({
         },
         {
           onSuccess: () => {
-            navigate('/dashboard')
-            toast.success('Sign up successful')
+            authStore.trigger.closeForm()
           },
-          onError: (error) => {
-            toast.error(error.error.message)
+          onError: ({ error }) => {
+            toast.error(error.message)
           },
         },
       )
@@ -49,14 +40,12 @@ export default function SignUpForm({
     },
   })
 
-  if (isPending) {
-    return <Loader />
+  const handleSwitchToSignIn = () => {
+    authStore.trigger.openForm({ open: 'sign-in' })
   }
 
   return (
-    <div className="mx-auto mt-10 w-full max-w-md p-6">
-      <h1 className="mb-6 text-center font-bold text-3xl">Create Account</h1>
-
+    <>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -143,10 +132,10 @@ export default function SignUpForm({
       </form>
 
       <div className="mt-4 text-center">
-        <Button variant="link" onClick={onSwitchToSignIn} className="text-indigo-600 hover:text-indigo-800">
+        <Button variant="link" onClick={handleSwitchToSignIn} className="text-muted-foreground hover:text-foreground cursor-pointer">
           Already have an account? Sign In
         </Button>
       </div>
-    </div>
+    </>
   )
 }

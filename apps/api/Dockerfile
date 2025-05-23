@@ -1,23 +1,47 @@
-# use the official Bun image (alpine for smaller size)
-FROM oven/bun:1.2-alpine AS base
+# syntax = docker/dockerfile:1
 
-RUN apk update
-RUN apk add --no-cache libc6-compat
+# Adjust NODE_VERSION as desired
+# ARG NODE_VERSION=22.11.0
+# FROM node:${NODE_VERSION}-slim as base
+FROM oven/bun:1.2-slim as base
 
-# Set working directory
+LABEL fly_launch_runtime="NodeJS"
+
+# NodeJS app lives here
 WORKDIR /app
 
-# Copy dependency files
-COPY package.json ./
+RUN apt-get update -qq && \
+    apt-get install -y openssl
 
-# Install dependencies
+# Set production environment
+ENV NODE_ENV=production
+
+# Throw-away build stage to reduce size of final image
+FROM base as build
+
+# Install packages needed to build node modules
+RUN apt-get update -qq && \
+    apt-get install -y python-is-python3 pkg-config build-essential
+
+# Install node modules
+COPY --link package.json .
 RUN bun install
 
-# Copy full repo (you can adjust this for better caching)
-COPY . .
+# Copy application code
+COPY --link . .
 
-# Expose the dev port
-EXPOSE 5173
+# Build application
+# Just deploy the api, so we need to run build
+# RUN bun run build
 
-# Set default command (adjust to your entry point)
-CMD ["bun", "run", "dev"]
+# Remove development dependencies
+# RUN bun prune --production
+
+# Final stage for app image
+FROM base
+
+# Copy built application
+COPY --from=build /app /app
+
+# Start the server by default, this can be overwritten at runtime
+CMD [ "bun", "run", "start" ]

@@ -68,6 +68,7 @@ export function createHttpServer() {
   logger.info(`🚀 Server running at http://${server.hostname}:${server.port}`)
 
   return {
+    app,
     close: () => server.stop(),
   }
 }

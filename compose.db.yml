@@ -15,7 +15,7 @@ services:
 
   migrate:
     image: oven/bun:1.2-alpine
-    command: sh -c "bun install --frozen-lockfile --production && bun run db:setup"
+    command: sh -c "bun install --frozen-lockfile && bun run db:setup"
     working_dir: /app
     volumes:
       - ./apps/api:/app

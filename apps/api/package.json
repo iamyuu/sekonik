@@ -6,6 +6,7 @@
     "typecheck": "tsc --noEmit",
     "dev": "bun run --hot src/index.ts",
     "start": "bun run src/index.ts",
+    "db:gen": "dotenv -e .env -- prisma generate --schema ./src/database/schema",
     "db:setup": "dotenv -e .env -- prisma db push --schema ./src/database/schema",
     "db:studio": "prisma studio"
   },

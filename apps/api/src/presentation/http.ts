@@ -23,7 +23,7 @@ export function createHttpServer() {
   app.use(
     '/api/*',
     cors({
-      origin: env.WEB_URL,
+      origin: ['*'],
       allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowHeaders: ['Content-Type', 'Authorization', 'X-Request-Id'],
       credentials: true,

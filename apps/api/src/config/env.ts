@@ -6,7 +6,7 @@ export const env = createEnv({
   runtimeEnv: process.env,
 
   server: {
-    APP_HOST: z.string().default('localhost'),
+    APP_HOST: z.string().default('0.0.0.0'),
     APP_PORT: z.coerce.number().default(8080),
 
     WEB_URL: z.string().url().default('http://localhost:5173'),

@@ -14,26 +14,33 @@ A web app to buy and sell preloved electronic
 - **Prisma** - TypeScript-first ORM
 - **PostgreSQL** - Database engine
 - **Authentication** - Email & password authentication with Better Auth
-- **Biome** - Linting and formatting
+- **ESLint** & **Prettier** - Linting and formatting
 - **Turborepo** - Optimized monorepo build system
+
+## User Stories
+
+- [x] As a user, I want to be able to see categories of products
+- [x] As a user, I want to be able to see products by category
+- [x] As a user, I want to be able to see featured products
+- [x] As a user, I want to be able to see list of products
+- [x] As a user, I want to be able to sort or filter products
+- [x] As a user, I want to be able to see product details
 
 ## Getting Started
 
-First, install the dependencies:
+### Prerequisites
+
+- **Docker** - Containerization platform
+
+### Start for development
+
+Setup and start all services (database, api, and web) in the background:
 
 ```bash
-make setup
-```
-
-Run the development server:
-
-```bash
-make dev
+docker compose up -d
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to see the web application.
-
-The API is running at [http://localhost:8080](http://localhost:8080).
 
 ## Project Structure
 

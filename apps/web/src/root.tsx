@@ -63,4 +63,6 @@ export default function App() {
   )
 }
 
-export { ErrorFallback as ErrorBoundary }
+export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
+  return <ErrorFallback {...props} />
+}

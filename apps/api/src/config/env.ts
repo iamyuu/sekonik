@@ -9,7 +9,11 @@ export const env = createEnv({
     APP_HOST: z.string().default('0.0.0.0'),
     APP_PORT: z.coerce.number().default(8080),
 
-    WEB_URL: z.string().url().default('http://localhost:5173'),
+    WEB_URL: z
+      .string()
+      .url()
+      .default('http://localhost:5173')
+      .transform(url => ['http://0.0.0.0:5173', 'http://localhost:5173', url]),
 
     DATABASE_URL: z.string().default('postgresql://usr:secret@localhost:5432/sekonik?schema=public'),
   },

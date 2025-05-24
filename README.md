@@ -30,14 +30,22 @@ A web app to buy and sell preloved electronic
 
 ### Prerequisites
 
-- **Docker** - Containerization platform
+- Docker Compose
 
-### Start for development
+### Start in local machin
 
-Setup and start all services (database, api, and web) in the background:
+Because we use prisma to generate database schema, we need to setup database first:
 
 ```bash
-docker compose up -d
+make setup-db
+```
+
+It'll migrate, generate prisma client, and seeding the data.
+
+After that, we can start all services (database, api, and web):
+
+```bash
+docker-compose up
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to see the web application.

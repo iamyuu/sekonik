@@ -23,7 +23,7 @@ export function createHttpServer() {
   app.use(
     '/api/*',
     cors({
-      origin: ['*'],
+      origin: env.WEB_URL,
       allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowHeaders: ['Content-Type', 'Authorization', 'X-Request-Id'],
       credentials: true,
@@ -51,7 +51,7 @@ export function createHttpServer() {
       return c.json({ ...isHealthy, db: 'OK' })
     }
     catch {
-      return c.json({ ...isHealthy, db: 'NOK' }, 500)
+      return c.json({ ...isHealthy, message: 'NOK', db: 'NOK' }, 500)
     }
   })
 

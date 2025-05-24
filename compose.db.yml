@@ -1,0 +1,28 @@
+services:
+  db:
+    container_name: sekonik_db
+    image: postgres:17.5-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - sekonik_data:/var/lib/postgresql/data
+      - ./scripts/factories/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=sekonik
+
+  migrate:
+    image: oven/bun:1.2-alpine
+    command: sh -c "bun install --frozen-lockfile --production && bun run db:setup"
+    working_dir: /app
+    volumes:
+      - ./apps/api:/app
+    environment:
+      - DATABASE_URL=postgresql://usr:secret@db:5432/sekonik
+    depends_on:
+      - db
+
+volumes:
+  sekonik_data:

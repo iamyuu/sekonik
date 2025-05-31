@@ -37,10 +37,11 @@ export function Combobox(props: ComboboxProps) {
           aria-expanded={open}
           className="w-full justify-between"
         >
-          {selected || `Select ${props.fieldName}`}
+          {props.items.find(item => item.value === selected)?.label || `Select ${props.fieldName}`}
           <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
+
       <PopoverContent className="w-full p-0">
         <Command
           filter={(_value, search) => {
@@ -60,7 +61,7 @@ export function Combobox(props: ComboboxProps) {
                         value={item.value}
                         onSelect={(currentValue) => {
                           props.onChange?.(currentValue)
-                          setSelected(currentValue === selected ? '' : item.label)
+                          setSelected(currentValue === selected ? '' : item.value)
                           setOpen(false)
                         }}
                         className="flex justify-between items-center"
@@ -69,7 +70,7 @@ export function Combobox(props: ComboboxProps) {
                         <CheckIcon
                           className={cn(
                             'mr-2 h-4 w-4',
-                            selected === item.label ? 'opacity-100' : 'opacity-0',
+                            selected === item.value ? 'opacity-100' : 'opacity-0',
                           )}
                         />
                       </CommandItem>

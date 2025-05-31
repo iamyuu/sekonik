@@ -15,6 +15,9 @@ export const SearchParamsSchema = z.object({
   pageSize: z.coerce.number().nullish().default(50),
 
   // Filtering
+  brand: optionalString,
+  category: optionalString,
+
   minPrice: optionalString,
   maxPrice: optionalString,
 

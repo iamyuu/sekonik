@@ -27,6 +27,7 @@ setup-web:
 	cp apps/web/.env.example apps/web/.env
 
 setup:
+	bun install
 	@$(MAKE) setup-web
 	@$(MAKE) setup-api
 	@$(MAKE) setup-db

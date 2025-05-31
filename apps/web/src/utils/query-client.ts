@@ -17,13 +17,18 @@ export const queryClient = new QueryClient({
       retryDelay: retryCount => Math.min(1_000 * 2 ** retryCount, 30_000),
       // Retries if the condition is true
       retry: (failureCount, error) => {
+        // Retries when the failure count is less than the maximum retry count
+        const shouldRetry = failureCount <= MAX_RETRY
+        if (!shouldRetry) {
+          return false
+        }
+
         if (error instanceof TRPCClientError) {
           // Skip retry if the error is 401, 403, 404
           return error.shape?.code !== 'UNAUTHORIZED' || error.shape?.code !== 'FORBIDDEN' || error.shape?.code !== 'NOT_FOUND'
         }
 
-        // Retries when the failure count is less than the maximum retry count
-        return failureCount <= MAX_RETRY
+        return false
       },
     },
   },

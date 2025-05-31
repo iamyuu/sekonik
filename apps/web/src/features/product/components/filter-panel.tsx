@@ -12,7 +12,13 @@ import { ProductCategorySelection } from './category-selection'
 export function ProductFilterPanel() {
   const [searchParams, setSearchParams] = useSearchParams()
   const updateSearchParams = useDebounceFn((key: string, value: string) => {
-    searchParams.set(key, value)
+    if (value === '' || value === null || value === undefined) {
+      searchParams.delete(key)
+    }
+    else {
+      searchParams.set(key, value)
+    }
+
     setSearchParams(searchParams)
   })
 

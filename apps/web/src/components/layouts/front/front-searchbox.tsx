@@ -42,7 +42,13 @@ export function SearchboxRoot(props: React.PropsWithChildren) {
   const handleChangeSearch = (keyword: string) => {
     setOpen(false)
 
-    searchParams.set('q', keyword)
+    if (keyword === '') {
+      searchParams.delete('q')
+    }
+    else {
+      searchParams.set('q', keyword)
+    }
+
     navigate({ pathname: '/product', search: searchParams.toString() })
   }
 

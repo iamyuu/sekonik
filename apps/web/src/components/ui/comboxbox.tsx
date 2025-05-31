@@ -60,8 +60,10 @@ export function Combobox(props: ComboboxProps) {
                         key={item.value}
                         value={item.value}
                         onSelect={(currentValue) => {
-                          props.onChange?.(currentValue)
-                          setSelected(currentValue === selected ? '' : item.value)
+                          const nextValue = currentValue === selected ? '' : currentValue
+
+                          props.onChange?.(nextValue)
+                          setSelected(nextValue)
                           setOpen(false)
                         }}
                         className="flex justify-between items-center"

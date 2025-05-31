@@ -1,12 +1,10 @@
-FROM bun:1.2-slim
+FROM oven/bun:1.2-alpine
 
 WORKDIR /app
 
-COPY package.json
+COPY . .
 
 RUN bun install
-
-COPY . .
 
 EXPOSE 8080
 

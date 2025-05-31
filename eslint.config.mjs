@@ -17,6 +17,7 @@ export default antfu(
     files: [
       'apps/web/src/components/ui/**/*',
       'apps/web/src/routes/**/*',
+      'apps/web/src/root.tsx',
     ],
     rules: {
       'react-refresh/only-export-components': 'off',

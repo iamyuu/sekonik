@@ -1,8 +1,32 @@
 import type { Route } from '../../+types/root'
 import { isRouteErrorResponse } from 'react-router'
 import { FrontLayout } from '@/components/layouts/front'
+import { Button } from '../ui/button'
 
-export function ErrorFallback(props: Route.ErrorBoundaryProps) {
+interface ErrorFallbackProps {
+  title: string
+  description: string
+  onRetry?: () => void
+}
+
+export function ErrorFallback(props: ErrorFallbackProps) {
+  return (
+    <div className="container mx-auto py-16 px-4 text-center space-y-2">
+      <h1 className="text-2xl font-bold">{props.title}</h1>
+      <p>{props.description}</p>
+
+      {props.onRetry
+        ? (
+            <Button variant="outline" className="mt-4 cursor-pointer" onClick={props.onRetry}>
+              Try again
+            </Button>
+          )
+        : null}
+    </div>
+  )
+}
+
+export function ErrorFallbackScreen(props: Route.ErrorBoundaryProps) {
   let message = 'Oops!'
   let details = 'An unexpected error occurred.'
   let stack: string | undefined

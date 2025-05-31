@@ -16,7 +16,6 @@ interface ProductDetailProps {
 
 export function ProductDetail(props: ProductDetailProps) {
   const { data: product } = useProductBySlug(props.slug)
-  const [activeImage, setActiveImage] = useState(0)
   const [quantity, setQuantity] = useState(product?.minimumOrderQuantity || 1)
 
   const handleUpdateQuantity = (kind: 'increase' | 'decrease' | 'set', newQuantity?: number) => {
@@ -57,35 +56,7 @@ export function ProductDetail(props: ProductDetailProps) {
       {/* Product details */}
       <div className="grid grid-cols-12 gap-8 mb-12">
         {/* Product Images */}
-        <div className="col-span-12 lg:col-span-5 space-y-4">
-          <div className="bg-white border rounded-lg overflow-hidden aspect-square">
-            <Image
-              src={product.images[activeImage].url}
-              alt={product.name}
-              className="w-full h-full object-contain p-4"
-            />
-          </div>
-
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
-            {product.images.map((image, index) => (
-              <button
-                key={image.id}
-                type="button"
-                className={cn(
-                  'rounded-md overflow-hidden w-18 h-18 flex-shrink-0',
-                  index === activeImage ? 'border-2 border-primary' : '',
-                )}
-                onClick={() => setActiveImage(index)}
-              >
-                <Image
-                  src={image.url}
-                  alt={`${product.name} - view ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-        </div>
+        <ProductImages slug={props.slug} />
 
         {/* Product Info */}
         <div className="col-span-12 lg:col-span-7">
@@ -123,7 +94,7 @@ export function ProductDetail(props: ProductDetailProps) {
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-1">
               <span className="font-medium text-sm">Category:</span>
-              <Link to={`/product?category=${product.category.slug}`} className="hover:underline">
+              <Link to={`/product?category=${product.category.slug}`} className="hover:underline" prefetch="intent">
                 {product.category.name}
               </Link>
             </div>
@@ -132,7 +103,7 @@ export function ProductDetail(props: ProductDetailProps) {
               ? (
                   <div className="flex items-center gap-1">
                     <span className="font-medium text-sm">Brand:</span>
-                    <Link to={`/product?brand=${product.brand.slug}`} className="hover:underline">
+                    <Link to={`/product?brand=${product.brand.slug}`} className="hover:underline" prefetch="intent">
                       {product.brand.name}
                     </Link>
                   </div>
@@ -149,6 +120,7 @@ export function ProductDetail(props: ProductDetailProps) {
 
             <div className="flex items-center gap-1">
               <span className="font-medium text-sm">Size:</span>
+              {/* @ts-expect-error -- dimensions is not typed correctly */}
               <span>{formatDimensions(product.dimensions)}</span>
             </div>
 
@@ -213,6 +185,47 @@ export function ProductDetail(props: ProductDetailProps) {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  )
+}
+
+function ProductImages(props: ProductDetailProps) {
+  const [activeImage, setActiveImage] = useState(0)
+  const { data: product } = useProductBySlug(props.slug)
+
+  if (!product) {
+    return null
+  }
+
+  return (
+    <div className="col-span-12 lg:col-span-5 space-y-4">
+      <div className="bg-white border rounded-lg overflow-hidden aspect-square">
+        <Image
+          src={product.images[activeImage].url}
+          alt={product.name}
+          className="w-full h-full object-contain p-4"
+        />
+      </div>
+
+      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+        {product.images.map((image, index) => (
+          <button
+            key={image.id}
+            type="button"
+            className={cn(
+              'rounded-md overflow-hidden w-18 h-18 flex-shrink-0',
+              index === activeImage ? 'border-2 border-primary' : '',
+            )}
+            onClick={() => setActiveImage(index)}
+          >
+            <Image
+              src={image.url}
+              alt={`${product.name} - view ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </button>
+        ))}
       </div>
     </div>
   )

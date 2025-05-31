@@ -1,10 +1,9 @@
 import { cors } from 'hono/cors'
-import { logger as httpLogger } from 'hono/logger'
 import { secureHeaders } from 'hono/secure-headers'
 import { env } from '@/config/env'
 import { prisma } from '@/database/client'
 import { authRoute } from '@/features/auth/auth.route'
-import { productRouter } from '@/features/product/product.procedure'
+import { productRouter } from '@/features/product/procedure'
 import { logger } from '@/utils/logger'
 import { createRouter } from '@/utils/router'
 import { genRequestId } from '@/utils/string'
@@ -17,7 +16,6 @@ const trpcRouter = defineRouter({
 export function createHttpServer() {
   const app = createRouter()
 
-  app.use(httpLogger())
   app.use(secureHeaders())
 
   app.use(

@@ -1,1 +1,1 @@
-export { useCart } from './hooks/use-cart'
+export { HeaderCart } from './components/header-cart'

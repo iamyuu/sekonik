@@ -1,9 +1,20 @@
-import { ProductFilterPanel } from '@/features/product/components/product-filter-panel'
-import { ProductFilterResult } from '@/features/product/components/product-filter-result'
+import type { Route } from './+types/(front).product._index'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
+import { Suspense } from 'react'
+import { ProductFilterPanel } from '@/features/product/components/filter-panel'
+import { ProductFilterResult, ProductFilterResultSkeleton } from '@/features/product/components/filter-result'
+import { prefetchProducts } from '@/features/product/services/product'
+import { parseSearchParams } from '@/features/product/utils/parser'
 
-// export function loader() {
-//   // TODO: prefetch list of product with filter query params using `queryClient.ensureData`
-// }
+export async function loader({ request }: Route.LoaderArgs) {
+  const queryClient = new QueryClient()
+
+  prefetchProducts(queryClient, parseSearchParams(new URL(request.url).searchParams))
+
+  return {
+    dehydratedState: dehydrate(queryClient),
+  }
+}
 
 export default function ProductFilterPage() {
   return (
@@ -13,7 +24,9 @@ export default function ProductFilterPage() {
           <ProductFilterPanel />
         </div>
         <div className="md:col-span-9">
-          <ProductFilterResult />
+          <Suspense fallback={<ProductFilterResultSkeleton />}>
+            <ProductFilterResult />
+          </Suspense>
         </div>
       </div>
     </div>

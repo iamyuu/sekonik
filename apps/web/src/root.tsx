@@ -1,7 +1,8 @@
 import type { Route } from './+types/root'
+import { HydrationBoundary } from '@tanstack/react-query'
 import { Suspense } from 'react'
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
-import { ErrorFallback } from '@/components/fallback/error-fallback'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation, useMatches } from 'react-router'
+import { ErrorFallbackScreen } from '@/components/fallback/error-fallback'
 import { PendingFallback } from '@/components/fallback/pending-fallback'
 import { APP_DESCRIPTION, APP_NAME } from '@/config/app'
 import { AppProviders } from '@/providers/app-provider'
@@ -54,15 +55,27 @@ export function Layout({ children }: React.PropsWithChildren) {
 }
 
 export default function App() {
+  const dehydratedState = useDehydratedState()
+
   return (
     <AppProviders>
       <Suspense fallback={<PendingFallback className="pt-8" />}>
-        <Outlet />
+        <HydrationBoundary state={dehydratedState}>
+          <Outlet />
+        </HydrationBoundary>
       </Suspense>
     </AppProviders>
   )
 }
 
 export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
-  return <ErrorFallback {...props} />
+  return <ErrorFallbackScreen {...props} />
+}
+
+export function useDehydratedState() {
+  const matches = useMatches()
+  const location = useLocation()
+  const loaderData = matches.find(match => match.pathname === location.pathname)?.data
+
+  return (loaderData as any)?.dehydratedState
 }

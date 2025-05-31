@@ -1,15 +1,22 @@
+import type { ValueOf } from '@/types/utils'
 import { useEffect, useState } from 'react'
-import { PendingFallback } from '@/components/fallback/pending-fallback'
+import { Skeleton } from './skeleton'
 
-type ImageStatus = 'pending' | 'loaded' | 'error'
+const placeholderImage = '/placeholder.svg'
+
+const ImageStatus = {
+  Pending: 'pending',
+  Loaded: 'loaded',
+  Error: 'error',
+} as const
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
 function Img(props: ImageProps) {
-  const [status, setStatus] = useState<ImageStatus>('pending')
+  const [status, setStatus] = useState<ValueOf<typeof ImageStatus>>(ImageStatus.Pending)
 
   if (!props.src) {
-    setStatus('error')
+    setStatus(ImageStatus.Error)
   }
 
   useEffect(() => {
@@ -19,24 +26,25 @@ function Img(props: ImageProps) {
 
     const img = new Image()
     img.src = props.src!
-    img.onload = () => {
-      setStatus('loaded')
-    }
-    img.onerror = () => {
-      setStatus('error')
-    }
+    img.onload = () => setStatus(ImageStatus.Loaded)
+    img.onerror = () => setStatus(ImageStatus.Error)
 
+    // Remove event listeners on unmount
     return () => {
       img.onload = null
       img.onerror = null
     }
   }, [props.src])
 
-  if (status === 'pending') {
-    return <PendingFallback />
+  if (status === ImageStatus.Pending) {
+    return <Skeleton className="w-full h-full" />
   }
 
-  return <img {...props} src={status === 'loaded' ? props.src : '/placeholder.svg'} />
+  if (status === ImageStatus.Error) {
+    return <img {...props} src={placeholderImage} />
+  }
+
+  return <img {...props} src={props.src} />
 }
 
 export { Img as Image }

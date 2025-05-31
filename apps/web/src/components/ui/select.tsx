@@ -3,6 +3,8 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { cn } from '@/utils/functions'
+import { Label } from './label'
+import { Skeleton } from './skeleton'
 
 function Select({
   ...props
@@ -169,6 +171,17 @@ function SelectScrollDownButton({
   )
 }
 
+function SelectSkeleton({
+  label = 'Loading',
+}) {
+  return (
+    <div className="flex flex-col gap-2 cursor-wait">
+      <Label>{label}</Label>
+      <Skeleton className="w-full h-9" />
+    </div>
+  )
+}
+
 export {
   Select,
   SelectContent,
@@ -178,6 +191,7 @@ export {
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
+  SelectSkeleton,
   SelectTrigger,
   SelectValue,
 }

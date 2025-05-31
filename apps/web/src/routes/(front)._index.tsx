@@ -9,7 +9,7 @@ import { prefetchFeaturedProducts } from '@/features/product/services/product'
 // User won't see it in the initial render
 const FrontFeatures = lazy(() => import('@/components/layouts/front/front-features').then(module => ({ default: module.FrontFeatures })))
 
-export async function loader() {
+export async function clientLoader() {
   const queryClient = new QueryClient()
 
   prefetchCategories(queryClient)

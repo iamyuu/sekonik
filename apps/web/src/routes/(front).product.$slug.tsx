@@ -22,7 +22,7 @@ export const meta: Route.MetaFunction = ({ data }) => {
   ]
 }
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   if (!params.slug) {
     throw new Error('Product not found')
   }
@@ -41,7 +41,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function ProductDetailPage() {
-  const { slug } = useParams<Route.LoaderArgs['params']>()
+  const { slug } = useParams<Route.ClientLoaderArgs['params']>()
 
   if (!slug) {
     throw new Error('Product not found')

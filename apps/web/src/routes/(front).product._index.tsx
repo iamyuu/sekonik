@@ -6,7 +6,7 @@ import { ProductFilterResult, ProductFilterResultSkeleton } from '@/features/pro
 import { prefetchProducts } from '@/features/product/services/product'
 import { parseSearchParams } from '@/features/product/utils/parser'
 
-export async function loader({ request }: Route.LoaderArgs) {
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const queryClient = new QueryClient()
 
   prefetchProducts(queryClient, parseSearchParams(new URL(request.url).searchParams))

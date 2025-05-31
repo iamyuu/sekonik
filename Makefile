@@ -4,6 +4,9 @@ gen-seed:
 db:
 	docker-compose -f compose.db.yml up -d
 
+db-stop:
+	docker-compose -f compose.db.yml down
+
 setup-db:
 # start service
 	docker-compose -f compose.db.yml up -d
@@ -15,7 +18,17 @@ setup-db:
 # stop service
 	docker-compose -f compose.db.yml down
 
+setup-api:
+	cp apps/api/.env.example apps/api/.env
+	cd apps/api && bun run db:gen
+	cd apps/api && bun run db:setup
+
+setup-web:
+	cp apps/web/.env.example apps/web/.env
+
 setup:
+	@$(MAKE) setup-web
+	@$(MAKE) setup-api
 	@$(MAKE) setup-db
 
 dev:

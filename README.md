@@ -42,13 +42,13 @@ git clone https://github.com/iamyuu/sekonik.git
 cd sekonik
 ```
 
-Setup environment
+Setup environment, by running this script it will automatically setup all environment variables, run database migrations, and seed the database
 
 ```bash
 make setup
 ```
 
-Start Docker services (Postgres)
+Start Docker services (Postgres):
 
 ```bash
 make db

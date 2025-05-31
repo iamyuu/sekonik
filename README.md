@@ -13,7 +13,7 @@ A web app to buy and sell preloved electronic
 - **Bun** - Runtime environment
 - **Prisma** - TypeScript-first ORM
 - **PostgreSQL** - Database engine
-- **Authentication** - Email & password authentication with Better Auth
+- **Authentication** - Authentication with Better Auth
 - **ESLint** & **Prettier** - Linting and formatting
 - **Turborepo** - Optimized monorepo build system
 
@@ -26,26 +26,38 @@ A web app to buy and sell preloved electronic
 - [x] As a user, I want to be able to sort or filter products
 - [x] As a user, I want to be able to see product details
 
-## Getting Started
+## Getting Started (Local Setup)
 
 ### Prerequisites
 
+- Bun
 - Docker Compose
 
-### Start in local machin
+### Local Setup
 
-Because we use prisma to generate database schema, we need to setup database first:
+Clone and install dependencies:
 
 ```bash
-make setup-db
+git clone https://github.com/iamyuu/sekonik.git
+cd sekonik
 ```
 
-It'll migrate, generate prisma client, and seeding the data.
-
-After that, we can start all services (database, api, and web):
+Setup environment
 
 ```bash
-docker-compose up
+make setup
+```
+
+Start Docker services (Postgres)
+
+```bash
+make db
+```
+
+### Run Apps
+
+```bash
+bun run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to see the web application.
@@ -73,6 +85,8 @@ sekonik
             ├── styles          # Global styles
             └── utils           # Utility functions
 ```
+
+Inside `features` directory, we have feature modules based on domain.
 
 ## Available Scripts
 

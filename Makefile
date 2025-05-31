@@ -1,6 +1,9 @@
 gen-seed:
 	bun run scripts/factories/factories.ts
 
+db:
+	docker-compose -f compose.db.yml up -d
+
 setup-db:
 # start service
 	docker-compose -f compose.db.yml up -d
@@ -14,3 +17,6 @@ setup-db:
 
 setup:
 	@$(MAKE) setup-db
+
+dev:
+	bun run dev

@@ -15,6 +15,9 @@ export function parseSearchParams(searchParams: URLSearchParams) {
     pageSize: searchParams.get('size'),
 
     // Filtering
+    brand: searchParams.get('brand'),
+    category: searchParams.get('category'),
+
     minPrice: searchParams.get('minPrice'),
     maxPrice: searchParams.get('maxPrice'),
 

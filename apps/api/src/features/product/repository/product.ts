@@ -96,6 +96,14 @@ export class ProductRepository {
       ]
     }
 
+    if (input.brand) {
+      where.brand = { slug: input.brand }
+    }
+
+    if (input.category) {
+      where.category = { slug: input.category }
+    }
+
     if (input.minStock) {
       where.stockQuantity = { gte: input.minStock }
     }

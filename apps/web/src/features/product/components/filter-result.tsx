@@ -13,15 +13,16 @@ export function ProductFilterResult() {
 
   const handleChangePagination = (kind: 'next' | 'prev') => {
     const currentPage = Number(searchParams.get('page') || 1)
-    const prevSearchParams = Object.fromEntries(searchParams)
 
     if (kind === 'next') {
-      setSearchParams({ ...prevSearchParams, page: (currentPage + 1).toString() })
+      searchParams.set('page', (currentPage + 1).toString())
     }
 
     if (kind === 'prev') {
-      setSearchParams({ ...prevSearchParams, page: (currentPage - 1).toString() })
+      searchParams.set('page', (currentPage - 1).toString())
     }
+
+    setSearchParams(searchParams)
   }
 
   return (
@@ -34,12 +35,16 @@ export function ProductFilterResult() {
         <ProductList products={items} />
       </div>
 
-      <SimplePagination
-        hasNext={query.data?.meta.hasNext}
-        hasPrev={query.data?.meta.hasPrev}
-        onNext={() => handleChangePagination('next')}
-        onPrev={() => handleChangePagination('prev')}
-      />
+      {items.length > 0
+        ? (
+            <SimplePagination
+              hasNext={query.data?.meta.hasNext}
+              hasPrev={query.data?.meta.hasPrev}
+              onNext={() => handleChangePagination('next')}
+              onPrev={() => handleChangePagination('prev')}
+            />
+          )
+        : null}
     </div>
   )
 }

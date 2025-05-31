@@ -11,7 +11,10 @@ import { ProductCategorySelection } from './category-selection'
 
 export function ProductFilterPanel() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const updateSearchParams = useDebounceFn((key: string, value: string) => setSearchParams({ ...Object.fromEntries(searchParams), [key]: value }))
+  const updateSearchParams = useDebounceFn((key: string, value: string) => {
+    searchParams.set(key, value)
+    setSearchParams(searchParams)
+  })
 
   return (
     <Card className="p-4 h-fit shadow-none">
